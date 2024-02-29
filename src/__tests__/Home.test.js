@@ -5,12 +5,10 @@ import Home from "../components/Home";
 
 test("uses the 'name' and 'city' props to display the correct text", () => {
   render(<Home name="Liza" city="New York" color="firebrick" />);
-  const liza = screen.queryByText(`Liza is a Web Developer from New York`);
-  expect(liza).toBeInTheDocument();
+  expect(screen.getByText(/Liza is a Web Developer from New York/)).toBeInTheDocument();
 
   render(<Home name="Duane" city="Queens" color="firebrick" />);
-  const duane = screen.queryByText(`Duane is a Web Developer from Queens`);
-  expect(duane).toBeInTheDocument();
+  expect(screen.getByText(/Duane is a Web Developer from Queens/)).toBeInTheDocument();
 });
 
 test("uses the 'color' prop to set the inline style color of the h1", () => {
